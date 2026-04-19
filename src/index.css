@@ -1,0 +1,173 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* 护眼纸白背景 - 增强对比度 */
+    --background: 40 20% 98%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    /* 学术墨绿主色 - 增强饱和度 */
+    --primary: 150 50% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 150 55% 30%;
+    /* 浅灰辅助色 - 优化层次 */
+    --secondary: 150 15% 92%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 150 10% 95%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 150 30% 90%;
+    --accent-foreground: 150 50% 25%;
+    /* 陶土红强调色 - 增强视觉冲击 */
+    --destructive: 15 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+    /* 边框与输入框 - 更细腻的层次 */
+    --border: 150 15% 85%;
+    --input: 150 15% 90%;
+    --ring: 150 50% 35%;
+    /* 图表色 - 更丰富的配色 */
+    --chart-1: 150 50% 35%;
+    --chart-2: 15 65% 50%;
+    --chart-3: 200 40% 50%;
+    --chart-4: 40 70% 55%;
+    --chart-5: 280 45% 55%;
+    /* 成功、警告、信息色 */
+    --success: 150 50% 40%;
+    --warning: 40 95% 55%;
+    --info: 200 75% 50%;
+    /* 渐变色 */
+    --gradient-primary: linear-gradient(135deg, hsl(150 50% 35%) 0%, hsl(150 55% 45%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(150 10% 98%) 100%);
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 150 45% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 150 50% 50%;
+    --secondary: 150 10% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 150 15% 16%;
+    --accent-foreground: 150 45% 70%;
+    --destructive: 15 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 10% 18%;
+    --input: 150 10% 16%;
+    --ring: 150 45% 45%;
+    --chart-1: 150 45% 45%;
+    --chart-2: 15 70% 50%;
+    --chart-3: 200 45% 55%;
+    --chart-4: 40 75% 60%;
+    --chart-5: 280 50% 60%;
+    --success: 150 45% 45%;
+    --warning: 40 90% 60%;
+    --info: 200 70% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(150 45% 45%) 0%, hsl(150 50% 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 9%) 0%, hsl(150 10% 11%) 100%);
+  }
+}
+
+@layer utilities {
+  /* 音标专用等宽字体样式 */
+  .phonetic {
+    @apply font-mono text-sm bg-muted px-2 py-0.5 rounded-md border border-border/50;
+  }
+  
+  /* 快速动效 */
+  .transition-quick {
+    transition: all 150ms ease-out;
+  }
+  
+  /* 渐变文字 */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(150 55% 45%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  
+  /* 卡片阴影效果 */
+  .card-shadow {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  }
+  
+  .card-shadow-lg {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  }
+  
+  /* 渐变背景 */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(150 55% 45%) 100%);
+  }
+  
+  .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(150 10% 98%) 100%);
+  }
+  
+  /* 深色模式渐变背景 */
+  .dark .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(150 10% 11%) 100%);
+  }
+  
+  /* 悬停效果 */
+  .hover-lift {
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -2px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+  }
+  
+  /* 边框渐变效果 */
+  .border-gradient {
+    border: 2px solid transparent;
+    background-image: 
+      linear-gradient(hsl(var(--card)), hsl(var(--card))),
+      linear-gradient(135deg, hsl(var(--primary)), hsl(150 55% 45%));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  /* 优化滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
+  }
+}
